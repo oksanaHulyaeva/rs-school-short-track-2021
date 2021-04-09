@@ -21,36 +21,38 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new Error('Not implemented');
-  // function getFieldFromMatrix (matr) {
-  //   return matr.map((item) => item.map(() => 0));
-  // }
-  // const newMatrix = getFieldFromMatrix(matrix);
-  // for (let i = 0; i < newMatrix.length; i++) {
-  // if (typeof newMatrix[i] !== 'undefined') {
-  //     for (let j = 0; j < newMatrix[i].length; i++) {
-  //       if (matrix[i][j - 1] && typeof matrix[i][j - 1] !== 'undefined') newMatrix[i][j]++;
-  //       if (matrix[i][j + 1] && typeof matrix[i][j + 1] !== 'undefined') newMatrix[i][j]++;
-  //       // if (matrix[i+1]?.[j] && typeof matrix[i+1]?.[j] !== "undefined") newMatrix[i][j]++;
-  //     // if (matrix[i+1]?.[j-1] && typeof matrix[i+1]?.[j-1] !== "undefined")  newMatrix[i][j]++;
-  //     // if (matrix[i+1]?.[j+1] && typeof matrix[i+1]?.[j+1] !== "undefined")  newMatrix[i][j]++;
-  //     // if (matrix[i-1]?.[j-1] && typeof matrix[i-1]?.[j-1] !== "undefined")  newMatrix[i][j]++;
-  //       // if (matrix[i-1]?.[j] && typeof matrix[i-1]?.[j] !== "undefined")  newMatrix[i][j]++;
-  //    // if (matrix[i-1]?.[j+1] && typeof matrix[i-1]?.[j+1] !== "undefined")  newMatrix[i][j]++
-  //       if (matrix[i + 1] && typeof matrix[i + 1] !== 'undefined') {
-  //         if (matrix[i + 1][j] && typeof matrix[i + 1][j] !== 'undefined') newMatrix[i][j]++;
-  //     if (matrix[i + 1][j - 1] && typeof matrix[i + 1][j - 1] !== 'undefined') newMatrix[i][j]++;
-  //  if (matrix[i + 1][j + 1] && typeof matrix[i + 1][j + 1] !== 'undefined') newMatrix[i][j]++;
-  //       }
-  //       if (matrix[i - 1] && typeof matrix[i - 1] !== 'undefined') {
-  //         if (matrix[i - 1][j] && typeof matrix[i - 1][j] !== 'undefined') newMatrix[i][j]++;
-  //   if (matrix[i - 1][j - 1] && typeof matrix[i - 1][j - 1] !== 'undefined') newMatrix[i][j]++;
-  //   if (matrix[i - 1][j + 1] && typeof matrix[i - 1][j + 1] !== 'undefined') newMatrix[i][j]++;
-  //       }
-  //     }
-  //   }
-  // }
+function minesweeper(matrix) {
+  // throw new Error('Not implemented');
+  function getFieldFromMatrix (matr) {
+    return matr.map((item) => item.map(() => 0));
+  }
+  const newMatrix = getFieldFromMatrix(matrix);
+
+  for (let i = 0; i < newMatrix.length; i++) {
+    if (typeof newMatrix[i] !== 'undefined') {
+      for (let j = 0; j < newMatrix[i].length; j++) {
+        if (matrix[i][j - 1] && typeof matrix[i][j - 1] !== 'undefined') newMatrix[i][j]++;
+        if (matrix[i][j + 1] && typeof matrix[i][j + 1] !== 'undefined') newMatrix[i][j]++;
+        // if (matrix[i+1]?.[j] && typeof matrix[i+1]?.[j] !== "undefined") newMatrix[i][j]++;
+        // if (matrix[i+1]?.[j-1] && typeof matrix[i+1]?.[j-1] !== "undefined")  newMatrix[i][j]++;
+        // if (matrix[i+1]?.[j+1] && typeof matrix[i+1]?.[j+1] !== "undefined")  newMatrix[i][j]++;
+        // if (matrix[i-1]?.[j-1] && typeof matrix[i-1]?.[j-1] !== "undefined")  newMatrix[i][j]++;
+        // if (matrix[i-1]?.[j] && typeof matrix[i-1]?.[j] !== "undefined")  newMatrix[i][j]++;
+        // if (matrix[i-1]?.[j+1] && typeof matrix[i-1]?.[j+1] !== "undefined")  newMatrix[i][j]++
+        if (matrix[i + 1] && typeof matrix[i + 1] !== 'undefined') {
+          if (matrix[i + 1][j] && typeof matrix[i + 1][j] !== 'undefined') newMatrix[i][j]++;
+          if (matrix[i + 1][j - 1] && typeof matrix[i + 1][j - 1] !== 'undefined') newMatrix[i][j]++;
+          if (matrix[i + 1][j + 1] && typeof matrix[i + 1][j + 1] !== 'undefined') newMatrix[i][j]++;
+        }
+        if (matrix[i - 1] && typeof matrix[i - 1] !== 'undefined') {
+          if (matrix[i - 1][j] && typeof matrix[i - 1][j] !== 'undefined') newMatrix[i][j]++;
+          if (matrix[i - 1][j - 1] && typeof matrix[i - 1][j - 1] !== 'undefined') newMatrix[i][j]++;
+          if (matrix[i - 1][j + 1] && typeof matrix[i - 1][j + 1] !== 'undefined') newMatrix[i][j]++;
+        }
+      }
+    }
+  }
+  return newMatrix;
 }
 
 module.exports = minesweeper;
